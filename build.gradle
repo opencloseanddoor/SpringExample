@@ -29,6 +29,10 @@ dependencies {
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+		
+	//강의 자료에 있던 내용을 그대로 추가 시켰다. 
+	//수정 사항이 조금 이라도 있으면 build.gradle안에 reflesh(새로고침)을 무조건 1번 진행을 하도록 하자
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
 }
 
 tasks.named('test') {
