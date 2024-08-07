@@ -23,7 +23,8 @@ repositories {
 	mavenCentral()
 }
 
-dependencies {
+dependencies 
+{
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
@@ -33,8 +34,15 @@ dependencies {
 	//강의 자료에 있던 내용을 그대로 추가 시켰다. 
 	//수정 사항이 조금 이라도 있으면 build.gradle안에 reflesh(새로고침)을 무조건 1번 진행을 하도록 하자
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+	
+	//아래의 코드는 데이터베이스를 연동시키기 위한 프레임 워크인 mybatis를 추가시키기 위한 코드이다
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
 }
 
-tasks.named('test') {
+tasks.named('test') 
+{
 	useJUnitPlatform()
 }
