@@ -28,7 +28,6 @@ public class Ex01Controller
 		fruitMap.put("banana", 3000);
 		fruitMap.put("orange", 1000);
 		
-		
 		return fruitMap;
 	}
 }

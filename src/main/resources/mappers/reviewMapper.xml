@@ -22,4 +22,46 @@
  			`id` = #{id}
  			
  </select>
+ 
+ <insert id="insertReview" parameterType="map">
+ 	INSERT 
+ 		`new_review`
+ 		(
+ 			`storeId`
+ 			,`menu`
+ 			,`userName`
+ 			,`point`
+ 			,`review`
+ 		)
+ 		
+ 		VALUE
+ 		(
+ 			#{storeId}
+ 			,#{menu}
+ 			,#{userName}
+ 			,#{point}
+ 			,#{review}
+ 		)
+ </insert>
+ 
+ <insert id="insertByReviewObject" parameterType="com.asm.spring.ex.mybatis.domain.Review">
+ 	INSERT
+ 	 	`new_review`
+ 		(
+ 			`storeId`
+ 			,`menu`
+ 			,`userName`
+ 			,`point`
+ 			,`review`
+ 		)
+ 		
+ 		VALUE
+ 		(
+ 			#{storeId}
+ 			,#{menu}
+ 			,#{userName}
+ 			,#{point}
+ 			,#{review}
+ 		)
+ </insert>
  </mapper>
