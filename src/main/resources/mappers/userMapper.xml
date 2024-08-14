@@ -21,4 +21,43 @@
 		LIMIT 
 			1
 	</select>
+	
+	<insert id="insertUser" parameterType="map">
+		INSERT INTO 
+			`new_user`
+			(
+				`name`
+				, `yyyymmdd`
+				, `email`
+				, `introduce`
+			)
+			VALUE
+			(
+				#{name}
+				, #{birthday}
+				, #{email}
+				, #{introduce}
+			)
+			
+	</insert>
+	
+	<insert id="insertUserByObject" parameterType="com.asm.spring.ex.mvc.domain.User"
+	useGeneratedKeys="true" keyProperty="id">
+	<!-- useGeneratedKeys="true" keyProperty="id"는 primaty key를 전달받아서 그 키에 해당하는 결과를 parameterType에 넣어준다 -->
+		INSERT INTO 
+			`new_user`
+			(
+				`name`
+				, `yyyymmdd`
+				, `email`
+				, `introduce`
+			)
+			VALUE
+			(
+				#{name}
+				, #{yyyymmdd}
+				, #{email}
+				, #{introduce}
+			)
+	</insert>
 </mapper>
