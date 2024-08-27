@@ -38,8 +38,13 @@ dependencies
 	//아래의 코드는 데이터베이스를 연동시키기 위한 프레임 워크인 mybatis를 추가시키기 위한 코드이다
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 	runtimeOnly 'com.mysql:mysql-connector-j'
-
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0' //쿼리에 실행결과를 보여주는 코드이다
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+	
+	//JPA를 사용하기위한 설정 파일이다.
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 tasks.named('test') 
