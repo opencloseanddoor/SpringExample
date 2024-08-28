@@ -3,12 +3,14 @@ package com.asm.spring.ex.jpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.asm.spring.ex.jpa.domain.Student;
 import com.asm.spring.ex.jpa.service.StudentService;
 
 @Controller
+@RequestMapping("/jap/student")
 public class StudentController 
 {
 	@Autowired
@@ -16,7 +18,7 @@ public class StudentController
 	
 	// C, U, D
 	//안성민, 010-1234-5678, aaaddd@naver.com, 개발자
-	@GetMapping("/jap/student/create")
+	@GetMapping("/create")
 	@ResponseBody
 	public Student createStudent()
 	{
@@ -25,6 +27,25 @@ public class StudentController
 		return student;
 	}
 	
+	@GetMapping("/update")
+	@ResponseBody
+	public Student updateStudent()
+	{
+		//id가 3인 학생정보의 장래희망을 강사로 변경
+		Student student = studentService.updateStudent(3, "강사");
+		
+		return student;
+	}
+	
+	@GetMapping("/delete")
+	@ResponseBody
+	public String deleteStudent()
+	{
+		// id가 4인 학생정보 삭제
+		studentService.deleteStudent(4);
+		
+		return "삭제 완료";
+	}
 	
 	
 	@GetMapping("/jpa/lombok/test")

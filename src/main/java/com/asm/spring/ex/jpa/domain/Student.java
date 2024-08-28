@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
  * @Entity /본 클래스를 Entity클래스로 사용이 되도록 한다
  */
 
-@Builder
+@Builder(toBuilder=true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
