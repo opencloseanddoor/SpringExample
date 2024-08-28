@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.8'
 	id 'io.spring.dependency-management' version '1.1.6'
+    id 'io.freefair.lombok' version '6.6.2' // Lombok 플러그인 사용
 }
 
 group = 'com.asm'
