@@ -1,5 +1,7 @@
 package com.asm.spring.ex.jpa;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,14 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.asm.spring.ex.jpa.domain.Student;
+import com.asm.spring.ex.jpa.repository.StudentRepository;
 import com.asm.spring.ex.jpa.service.StudentService;
 
 @Controller
-@RequestMapping("/jap/student")
+@RequestMapping("/jpa/student")
 public class StudentController 
 {
 	@Autowired
 	private StudentService studentService;
+	
+	//임시로 사용을 하는 형태
+	// 절대로 Controller 에서는 Repository 객체를 다루면 안 된다!!!!!
+	@Autowired
+	private StudentRepository studentRepository;
 	
 	// C, U, D
 	//안성민, 010-1234-5678, aaaddd@naver.com, 개발자
@@ -45,6 +53,35 @@ public class StudentController
 		studentService.deleteStudent(4);
 		
 		return "삭제 완료";
+	}
+	
+	@GetMapping("/find")
+	@ResponseBody
+	public List<Student> findStudent()
+	{
+		// 모든 행 조회
+		List<Student> studentList = null;
+		
+		//studentRepository.findAll();
+		
+		//studentList = studentRepository.findAllByOrderByIdDesc();
+		
+		//studentList = studentRepository.findTop2ByOrderByIdDesc();
+		
+		//studentList = studentRepository.findByName("유재석");
+		
+//		List<String> nameList = new ArrayList<>();
+//		nameList.add("유재석");
+//		nameList.add("조세호");
+//		
+//		studentList = studentRepository.findByNameIn(nameList);
+		
+		//studentList = studentRepository.findByEmailContaining("naver");
+		//studentList = studentRepository.findByIdBetweenOrderByIdDesc(2, 3);
+		
+		studentList = studentRepository.selectByDreamJob("프로그래머");
+		
+		return studentList;
 	}
 	
 	
